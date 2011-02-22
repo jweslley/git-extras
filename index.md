@@ -23,6 +23,7 @@ Brew (buggy):
  - [git changelog](git-changelog.1.html)
  - [git commits-since](git-commits-since.1.html)
  - [git count](git-count.1.html)
+ - [git create-branch](git-create-branch.1.html)
  - [git delete-branch](git-delete-branch.1.html)
  - [git delete-submodule](git-delete-submodule.1.html)
  - [git delete-tag](git-delete-tag.1.html)
