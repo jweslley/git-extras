@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv='content-type' value='text/html;charset=utf8'>
   <meta name='generator' value='Ronn/v0.7.3 (http://github.com/rtomayko/ronn/tree/0.7.3)'>
-  <title>git-alias(1) - Define, search and show aliases</title>
+  <title>git-summary(1) - Show repository summary</title>
   <style type='text/css' media='all'>
   /* style: man */
   body#manpage {margin:0}
@@ -64,62 +64,69 @@
     </div>
 
   <ol class='man-decor man-head man head'>
-    <li class='tl'>git-alias(1)</li>
+    <li class='tl'>git-summary(1)</li>
     <li class='tc'>Git Extras</li>
-    <li class='tr'>git-alias(1)</li>
+    <li class='tr'>git-summary(1)</li>
   </ol>
 
   <h2 id="NAME">NAME</h2>
 <p class="man-name">
-  <code>git-alias</code> - <span class="man-whatis">Define, search and show aliases</span>
+  <code>git-summary</code> - <span class="man-whatis">Show repository summary</span>
 </p>
 
 <h2 id="SYNOPSIS">SYNOPSIS</h2>
 
-<p><code>git-alias</code> [&lt;alias-name&gt; &lt;command&gt;]|[&lt;search-term&gt;]</p>
+<p><code>git-summary</code> [&lt;commitish&gt;]</p>
 
 <h2 id="DESCRIPTION">DESCRIPTION</h2>
 
+<p>Shows a summary of the repository.</p>
+
 <h2 id="OPTIONS">OPTIONS</h2>
 
-<p>  &lt;alias-name&gt;</p>
+<p>  &lt;commitish&gt;</p>
 
-<p>  The name of the alias to create.</p>
-
-<p>  &lt;command&gt;</p>
-
-<p>  The command for which you are creating an alias.</p>
-
-<p>  &lt;search-term&gt;</p>
-
-<p>  The pattern used for search aliases.</p>
+<p>  Summarize only the range of commits included in the &lt;commitish&gt;.</p>
 
 <h2 id="EXAMPLES">EXAMPLES</h2>
 
-<p> Defining a new alias:</p>
+<p>  Outputs a repo summary:</p>
 
-<pre><code>$ git alias last "cat-file commit HEAD"
+<pre><code>$ git summary
+
+project: express
+commits: 1893
+files  : 111
+authors:
+ 1285 visionmedia
+  478 Tj Holowaychuk
+   48 Aaron Heckmann
+   34 csausdev
+   26 ciaranj
+    6 Guillermo Rauch
+    3 Nick Poulden
+    2 Brian McKinney
+    2 Benny Wong
+    1 Justin Lilly
+    1 James Herdman
+    1 Adam Sanderson
+    1 Viktor Kelemen
+    1 Gregory Ritter
+    1 Greg Ritter
+    1 ewoudj
+    1 isaacs
+    1 Matt Colyer
 </code></pre>
 
-<p> Providing only one argument, <code>git-alias</code> searchs for aliases matching the given value:</p>
+<p>  This command can also take a commitish, and will print a summary for the range
+  of commits included in the commitish:</p>
 
-<pre><code>$ git alias ^la
-last = cat-file commit HEAD
-</code></pre>
-
-<p> <code>git-alias</code> will show all aliases if no argument is given:</p>
-
-<pre><code>$ git alias
-s = status
-amend = commit --amend
-rank = shortlog -sn --no-merges
-whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-whois = !sh -c 'git log -i -1 --pretty="format:%an &lt;%ae>
+<pre><code>$ git summary v42..
 </code></pre>
 
 <h2 id="AUTHOR">AUTHOR</h2>
 
-<p>Written by Jonhnny Weslley &lt;<a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#106;&#119;&#64;&#x6a;&#x6f;&#110;&#x68;&#110;&#x6e;&#121;&#x77;&#101;&#x73;&#x6c;&#108;&#x65;&#x79;&#x2e;&#x6e;&#x65;&#116;" data-bare-link="true">&#x6a;&#119;&#x40;&#106;&#x6f;&#x6e;&#104;&#110;&#x6e;&#121;&#119;&#101;&#115;&#x6c;&#x6c;&#x65;&#x79;&#46;&#110;&#x65;&#x74;</a>&gt;</p>
+<p>Written by Tj Holowaychuk &lt;<a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#116;&#x6a;&#64;&#118;&#x69;&#x73;&#105;&#111;&#110;&#x2d;&#109;&#x65;&#100;&#x69;&#97;&#46;&#x63;&#x61;" data-bare-link="true">&#116;&#x6a;&#x40;&#118;&#x69;&#x73;&#105;&#111;&#110;&#x2d;&#109;&#x65;&#100;&#105;&#97;&#46;&#x63;&#x61;</a>&gt;</p>
 
 <h2 id="REPORTING-BUGS">REPORTING BUGS</h2>
 
@@ -132,8 +139,8 @@ whois = !sh -c 'git log -i -1 --pretty="format:%an &lt;%ae>
 
   <ol class='man-decor man-foot man foot'>
     <li class='tl'></li>
-    <li class='tc'>March 2011</li>
-    <li class='tr'>git-alias(1)</li>
+    <li class='tc'>May 2011</li>
+    <li class='tr'>git-summary(1)</li>
   </ol>
 
   </div>
