@@ -49,6 +49,7 @@ $ brew install git-extras
  - `git refactor`
  - `git bug`
  - `git promote`
+ - `git number`
 
 ## extras
 
@@ -420,3 +421,16 @@ Set up a git repository (if one doesn't exist), add all files, and make an initi
 ## git-touch [filename]
 
 Call `touch` on the given file, and add it to the current index. One-step creation of new files.
+
+## git-number [command file]
+
+Use numbers for dealing with files in git.
+
+```bash
+git number
+1  M Readme.md
+2 ?? bin/git-number
+
+git number add 1  # stage the file 1 (Readme.md)
+git number -vi 2  # edit the file 2 (bin/git-number) using vi
+```
