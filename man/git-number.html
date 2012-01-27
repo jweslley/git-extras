@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='content-type' value='text/html;charset=utf8'>
+  <meta name='generator' value='Ronn/v0.7.3 (http://github.com/rtomayko/ronn/tree/0.7.3)'>
+  <title>git-number(1) - Use numbers for dealing with files</title>
+  <style type='text/css' media='all'>
+  /* style: man */
+  body#manpage {margin:0}
+  .mp {max-width:100ex;padding:0 9ex 1ex 4ex}
+  .mp p,.mp pre,.mp ul,.mp ol,.mp dl {margin:0 0 20px 0}
+  .mp h2 {margin:10px 0 0 0}
+  .mp > p,.mp > pre,.mp > ul,.mp > ol,.mp > dl {margin-left:8ex}
+  .mp h3 {margin:0 0 0 4ex}
+  .mp dt {margin:0;clear:left}
+  .mp dt.flush {float:left;width:8ex}
+  .mp dd {margin:0 0 0 9ex}
+  .mp h1,.mp h2,.mp h3,.mp h4 {clear:left}
+  .mp pre {margin-bottom:20px}
+  .mp pre+h2,.mp pre+h3 {margin-top:22px}
+  .mp h2+pre,.mp h3+pre {margin-top:5px}
+  .mp img {display:block;margin:auto}
+  .mp h1.man-title {display:none}
+  .mp,.mp code,.mp pre,.mp tt,.mp kbd,.mp samp,.mp h3,.mp h4 {font-family:monospace;font-size:14px;line-height:1.42857142857143}
+  .mp h2 {font-size:16px;line-height:1.25}
+  .mp h1 {font-size:20px;line-height:2}
+  .mp {text-align:justify;background:#fff}
+  .mp,.mp code,.mp pre,.mp pre code,.mp tt,.mp kbd,.mp samp {color:#131211}
+  .mp h1,.mp h2,.mp h3,.mp h4 {color:#030201}
+  .mp u {text-decoration:underline}
+  .mp code,.mp strong,.mp b {font-weight:bold;color:#131211}
+  .mp em,.mp var {font-style:italic;color:#232221;text-decoration:none}
+  .mp a,.mp a:link,.mp a:hover,.mp a code,.mp a pre,.mp a tt,.mp a kbd,.mp a samp {color:#0000ff}
+  .mp b.man-ref {font-weight:normal;color:#434241}
+  .mp pre {padding:0 4ex}
+  .mp pre code {font-weight:normal;color:#434241}
+  .mp h2+pre,h3+pre {padding-left:0}
+  ol.man-decor,ol.man-decor li {margin:3px 0 10px 0;padding:0;float:left;width:33%;list-style-type:none;text-transform:uppercase;color:#999;letter-spacing:1px}
+  ol.man-decor {width:100%}
+  ol.man-decor li.tl {text-align:left}
+  ol.man-decor li.tc {text-align:center;letter-spacing:4px}
+  ol.man-decor li.tr {text-align:right;float:right}
+  </style>
+</head>
+<!--
+  The following styles are deprecated and will be removed at some point:
+  div#man, div#man ol.man, div#man ol.head, div#man ol.man.
+
+  The .man-page, .man-decor, .man-head, .man-foot, .man-title, and
+  .man-navigation should be used instead.
+-->
+<body id='manpage'>
+  <div class='mp' id='man'>
+
+  <div class='man-navigation' style='display:none'>
+    <a href="#NAME">NAME</a>
+    <a href="#SYNOPSIS">SYNOPSIS</a>
+    <a href="#DESCRIPTION">DESCRIPTION</a>
+    <a href="#OPTIONS">OPTIONS</a>
+    <a href="#EXAMPLES">EXAMPLES</a>
+    <a href="#ALIASING">ALIASING</a>
+    <a href="#AUTHOR">AUTHOR</a>
+    <a href="#REPORTING-BUGS">REPORTING BUGS</a>
+    <a href="#SEE-ALSO">SEE ALSO</a>
+  </div>
+
+  <ol class='man-decor man-head man head'>
+    <li class='tl'>git-number(1)</li>
+    <li class='tc'>Git Extras</li>
+    <li class='tr'>git-number(1)</li>
+  </ol>
+
+  <h2 id="NAME">NAME</h2>
+<p class="man-name">
+  <code>git-number</code> - <span class="man-whatis">Use numbers for dealing with files</span>
+</p>
+
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<p><code>git-number</code> [&lt;subcommand&gt; [&lt;numbers&gt;...]]</p>
+
+<h2 id="DESCRIPTION">DESCRIPTION</h2>
+
+<p>  Working faster with git repositories.</p>
+
+<h2 id="OPTIONS">OPTIONS</h2>
+
+<p>  &lt;subcommand&gt;</p>
+
+<p>  A git subcommand or external program executed by <code>git-number</code> that will operate on files represented by &lt;numbers&gt;. By default, <code>git-number</code> assumes that &lt;subcommand&gt; is a git command (<code>git-add</code>, <code>git-am</code>, <code>git-commit</code>, ...), but allows to run external programs by prepending a hyphen to &lt;subcommand&gt;. If no &lt;subcommand&gt; is given, <code>git-number</code> shows the working tree status including the file's numbers.</p>
+
+<p>  &lt;numbers&gt;...</p>
+
+<p>  A whitespace-separated list of numbers that represent the filenames to the passed to &lt;subcommand&gt;. <code>git-number</code> also recognizes number ranges using the syntax '<code>start</code>,<code>end</code>'. For example, '2,5' is equivalent to '2 3 4 5'. In no &lt;numbers&gt; is given, is the same as passing all filenames that have differences between the index file and the current HEAD commit.</p>
+
+<h2 id="EXAMPLES">EXAMPLES</h2>
+
+<p>  Show the working tree status (similar to <code>git-status</code>'s short-format) prepending each filename with its respective number.</p>
+
+<pre><code>$ git number
+
+1 M  Readme.md
+2 A  bin/git-number
+3 ?? man/git-number.md
+</code></pre>
+
+<p>  Execute git &lt;subcommand&gt; using file's numbers instead of filenames.</p>
+
+<pre><code>$ git number add 3
+# runs 'git add man/git-number.md'
+
+$ git number
+
+1 M  Readme.md
+2 A  bin/git-number
+3 A  man/git-number.md
+</code></pre>
+
+<p>  You also can execute external commands using file's numbers. For this, just prepend &lt;subcommand&gt; a hyphen.</p>
+
+<pre><code>$ git number -vi 2
+# will execute 'vi bin/git-number'
+</code></pre>
+
+<p>  Additionally, you can pass multiple file numbers to &lt;subcommand&gt; at once.</p>
+
+<pre><code>$ git number commit 1 2 3 4 7
+</code></pre>
+
+<p>  And, you can even use ranges to speed up your coding. Thus, the previous command is similar to:</p>
+
+<pre><code>$ git number commit 1,4 7
+</code></pre>
+
+<p>  Finally, if you dont pass any number to &lt;subcommand&gt; is equivalent to pass all of them.</p>
+
+<pre><code>$ git number add
+# will stage all files
+</code></pre>
+
+<h2 id="ALIASING">ALIASING</h2>
+
+<p>  An extra boost in your productivity can be reached using git aliases. Suggested aliases:</p>
+
+<pre><code>[alias]
+  s = number
+  a = number add
+  vi = number -vi
+</code></pre>
+
+<p>  Note: 's' stands for status since <code>git-number</code> output is similar to <code>git-status</code> when no args are passed to it.</p>
+
+<h2 id="AUTHOR">AUTHOR</h2>
+
+<p>Written by Jonhnny Weslley &lt;<a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x6a;&#119;&#64;&#106;&#x6f;&#x6e;&#104;&#110;&#x6e;&#121;&#119;&#x65;&#115;&#x6c;&#108;&#x65;&#x79;&#x2e;&#x6e;&#101;&#116;" data-bare-link="true">&#x6a;&#119;&#x40;&#106;&#111;&#110;&#104;&#110;&#x6e;&#x79;&#119;&#101;&#x73;&#108;&#x6c;&#101;&#121;&#46;&#x6e;&#101;&#116;</a>&gt;</p>
+
+<h2 id="REPORTING-BUGS">REPORTING BUGS</h2>
+
+<p>&lt;<a href="http://github.com/visionmedia/git-extras/issues" data-bare-link="true">http://github.com/visionmedia/git-extras/issues</a>&gt;</p>
+
+<h2 id="SEE-ALSO">SEE ALSO</h2>
+
+<p>&lt;<a href="http://github.com/visionmedia/git-extras" data-bare-link="true">http://github.com/visionmedia/git-extras</a>&gt;</p>
+
+
+  <ol class='man-decor man-foot man foot'>
+    <li class='tl'></li>
+    <li class='tc'>January 2012</li>
+    <li class='tr'>git-number(1)</li>
+  </ol>
+
+  </div>
+</body>
+</html>
