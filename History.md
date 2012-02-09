@@ -1,4 +1,32 @@
 
+1.4.0 / 2012-02-08 
+==================
+
+  * Added: allow files to be passed to `git-effort(1)`. Closes #71
+  * Added: hide/show cursor for `git-effort(1)`
+  * Changed: color `git-effort(1)` commits / active days independently
+
+1.3.0 / 2012-02-08 
+==================
+
+  * Added active days to `git-effort(1)` output
+
+1.2.0 / 2012-02-08 
+==================
+
+  * Added a greater color range to `git-effort(1)`
+  * Added `--above <n>` to `git-effort(1)`
+
+1.1.0 / 2012-02-07 
+==================
+
+  * Added `git-effort(1)` (not yet complete)
+
+1.0.0 / 2012-02-04 
+==================
+
+  * Added `git-squash BRANCH [MSG]` to merge as a single commit
+
 0.9.0 / 2012-01-15 
 ==================
 

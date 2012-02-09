@@ -16,6 +16,12 @@ One-liner:
 $ curl https://raw.github.com/visionmedia/git-extras/master/bin/git-extras | INSTALL=y sh
 ```
 
+[MacPorts](http://www.macports.org/)
+
+```bash
+$ sudo port install git-extras
+```
+
 [Brew](github.com/mxcl/homebrew/) (buggy):
 
 ```bash
@@ -25,7 +31,9 @@ $ brew install git-extras
 ## Commands
 
  - `git extras`
+ - `git squash`
  - `git summary`
+ - `git effort`
  - `git changelog`
  - `git commits-since`
  - `git pull-request`
@@ -135,6 +143,22 @@ the commmitish range:
 $ git summary v42..
 ```
 
+## git-effort [file ....]
+
+  Displays "effort" statistics, currently just the number of commits per file, showing highlighting where the most activity is. The "active days" column is the total number of days which contributed modifications to this file.
+
+```
+node (master): git effort --above 15 {src,lib}/*
+```
+
+  ![git effort](http://f.cl.ly/items/0b0w0S2K1d100e2T1a0D/Screen%20Shot%202012-02-08%20at%206.43.34%20PM.png)
+
+  If you wish to ignore files with commits `<=` a value you may use `--above`:
+  
+```
+$ git effort --above 5
+```
+
 ## git-repl
 
 GIT read-eval-print-loop:
@@ -154,6 +178,12 @@ bin/git-ignore
 bin/git-release
 
 git> quit
+```
+
+  By default `git ls-files` is used, however you may pass one or more files to `git-effort(1)`, for example:
+
+```
+$ git effort bin/* lib/*
 ```
 
 ## git-commits-since [date]
@@ -320,13 +350,22 @@ Create empty local branch `name`:
 $ git fresh-branch docs
 ```
 
-## git-graft &lt;src-branch&gt; &lt;dest-branch&gt;
+## git-graft &lt;src-branch&gt; [dest-branch]
 
 Merge commits from `src-branch` into `dest-branch`. (`dest-branch` defaults to `master`.)
 
 ```bash
 $ git graft new_feature dev
 $ git graft new_feature
+```
+
+## git-squash &lt;src-branch&gt; [msg]
+
+Merge commits from `src-branch` into the current branch as a _single_ commit. When `[msg]` is given `git-commit(1)` will be invoked with that message. This is useful when small individual commits within a topic branch are irrelevant and you want to consider the topic as a single change.
+
+```bash
+$ git squash fixed-cursor-styling
+$ git squash fixed-cursor-styling "Fixed cursor styling"
 ```
 
 ## git-changelog

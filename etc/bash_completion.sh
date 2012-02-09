@@ -31,3 +31,7 @@ _git_extras(){
 _git_graft(){
   __gitcomp "$(__git_heads)"
 }
+
+_git_squash(){
+  __gitcomp "$(__git_heads)"
+}
