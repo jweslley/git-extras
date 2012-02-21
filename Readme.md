@@ -36,7 +36,6 @@ $ brew install git-extras
  - `git effort`
  - `git changelog`
  - `git commits-since`
- - `git pull-request`
  - `git count`
  - `git create-branch`
  - `git delete-branch`
@@ -81,18 +80,6 @@ $ git extras update
 ## gh-pages
 
 Sets up the `gh-pages` branch.  (See [GitHub Pages](http://pages.github.com/) documentation.)
-
-## git-pull-request &lt;number&gt;
-
-Pull a GitHub pull-request `number`, and apply it
-via `git am`. 
-
-The git config `github.user` must be present, and the dirname must 
-map to `https://github.com/<github.user>/<dirname>`.
-
-```bash
-git pull-request 604
-```
 
 ## git-contrib &lt;author&gt;
 
