@@ -53,6 +53,7 @@ $ brew install git-extras
  - `git setup`
  - `git touch`
  - `git number`
+ - `git local-commits`
 
 ## extras
 
@@ -271,32 +272,6 @@ whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 whois = !sh -c 'git log -i -1 --pretty="format:%an <%ae>
 ```
 
-## git-ignore [pattern ...]
-
-Too lazy to open up `.gitignore`?  Me too!
-
-```bash
-$ git ignore build "*.o" "*.log"
-... added 'build'
-... added '*.o'
-... added '*.log'
-```
-
-Add patterns from an existing template:
-
-```bash
-$ git ignore -t rails
-```
-
-Without any patterns, `git-ignore` displays currently ignored patterns:
-
-```bash
-$ git ignore
-build
-*.o
-*.log
-```
-
 ## git-create-branch &lt;name&gt;
 
 Create local and remote branch `name`:
@@ -431,3 +406,7 @@ git number
 git number add 1  # stage the file 1 (Readme.md)
 git number -vi 2  # edit the file 2 (bin/git-number) using vi
 ```
+
+## git-local-commits
+
+List all commits on the local branch that have not yet been sent to origin. Any additional arguments will be passed directly to git log.

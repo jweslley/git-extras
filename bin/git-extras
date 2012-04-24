@@ -1,12 +1,12 @@
 #!/bin/sh
 
-VERSION="1.4.0"
+VERSION="1.5.1"
 
 update() {
   local orig=$PWD
   cd /tmp \
     && rm -fr ./git-extras \
-    && git clone --depth 1 http://github.com/visionmedia/git-extras.git \
+    && git clone --depth 1 https://github.com/visionmedia/git-extras.git \
     && cd git-extras \
     && make install \
     && cd "$orig" \
