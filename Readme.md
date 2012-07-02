@@ -45,6 +45,7 @@ $ brew install git-extras
  - `git graft`
  - `git alias`
  - `git ignore`
+ - `git info`
  - `git release`
  - `git contrib`
  - `git repl`
@@ -104,10 +105,12 @@ Outputs a repo summary:
 ```bash
 $ git summary
 
-project: git-extras
-commits: 163
-files  : 93
-authors: 
+project  : git-extras
+repo age : 10 months ago
+commits  : 163
+active   : 60 days
+files    : 93
+authors  :
    97	Tj Holowaychuk          59.5%
    37	Jonhnny Weslley         22.7%
 	8	Kenneth Reitz           4.9%
@@ -272,6 +275,68 @@ whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 whois = !sh -c 'git log -i -1 --pretty="format:%an <%ae>
 ```
 
+## git-ignore [pattern ...]
+
+Too lazy to open up `.gitignore`?  Me too!
+
+```bash
+$ git ignore build "*.o" "*.log"
+... added 'build'
+... added '*.o'
+... added '*.log'
+```
+
+# git-info
+
+Show information about the repo:
+
+```bash
+$ git info
+
+    ## Remote URLs:
+
+    origin              git@github.com:sampleAuthor/git-extras.git (fetch)
+    origin              git@github.com:sampleAuthor/git-extras.git (push)
+
+    ## Remote Branches:
+
+    origin/HEAD -> origin/master
+    origin/myBranch
+
+    ## Local Branches:
+
+    myBranch
+    * master
+
+    ## Most Recent Commit:
+
+    commit e3952df2c172c6f3eb533d8d0b1a6c77250769a7
+    Author: Sample Author <sampleAuthor@gmail.com>
+
+    Added git-info command.
+
+    Type 'git log' for more commits, or 'git show <commit id>' for full commit details.
+
+    ## Configuration (.git/config):
+
+    color.diff=auto
+    color.status=auto
+    color.branch=auto
+    user.name=Sample Author
+    user.email=sampleAuthor@gmail.com
+    core.repositoryformatversion=0
+    core.filemode=true
+    core.bare=false
+    core.logallrefupdates=true
+    core.ignorecase=true
+    remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+    remote.origin.url=git@github.com:mub/git-extras.git
+    branch.master.remote=origin
+    branch.master.merge=refs/heads/master
+
+```
+
+>>>>>>> visionmedia
 ## git-create-branch &lt;name&gt;
 
 Create local and remote branch `name`:

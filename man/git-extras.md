@@ -11,6 +11,7 @@ git-extras(1) -- Awesome GIT utilities
    - `git-commits-since` show commit logs since some date
    - `git-contrib` show a user's contribution
    - `git-count` show commit count
+   - `git-effort` show effort statistics on file(s)
    - `git-fresh-branch` create fresh branches
    - `git-graft` merge and destroy a given branch
    - `git-ignore` add .gitignore patterns
@@ -20,6 +21,7 @@ git-extras(1) -- Awesome GIT utilities
    - `git-summary` repository summary & contrib
    - `git-touch` touch and add file to the index
    - `git-undo` undo one or more of the latest commits
+   - `git-info` show information about the repository
 
 ## AUTHOR
 

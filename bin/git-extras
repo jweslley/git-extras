@@ -1,14 +1,17 @@
 #!/bin/sh
 
-VERSION="1.5.1"
+VERSION="1.7.0"
 
 update() {
+  local bin=$(which git-extras)
+  local prefix=${bin%/*/*}
   local orig=$PWD
+
   cd /tmp \
     && rm -fr ./git-extras \
     && git clone --depth 1 https://github.com/visionmedia/git-extras.git \
     && cd git-extras \
-    && make install \
+    && PREFIX="$prefix" make install \
     && cd "$orig" \
     && echo "... updated git-extras $VERSION -> $(git extras --version)"
 }
