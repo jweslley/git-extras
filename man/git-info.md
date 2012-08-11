@@ -1,4 +1,4 @@
-git-info(1) -- Returns information on current respository
+git-info(1) -- Returns information on current repository
 ================================
 
 ## SYNOPSIS
@@ -7,12 +7,13 @@ git-info(1) -- Returns information on current respository
 
 ## DESCRIPTION
 
-Shows the following information about a repository:  
-1. Remote Url(s)  
-2. Remote Branches  
-3. Local Branches  
-4. Most recent commit  
-5. Configuration Info  
+Shows the following information about a repository:
+
+ 1. Remote Url(s)
+ 2. Remote Branches
+ 3. Local Branches
+ 4. Most recent commit
+ 5. Configuration Info
 
 ## OPTIONS
 

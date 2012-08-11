@@ -28,6 +28,12 @@ $ sudo port install git-extras
 $ brew install git-extras
 ```
 
+## Screencasts
+
+  Just getting started? Check out these screencasts:
+  
+ - [introduction](https://vimeo.com/45506445) -- covering git-ignore, git-setup, git-changelog, git-release, git-effort and more
+
 ## Commands
 
  - `git extras`
@@ -54,6 +60,8 @@ $ brew install git-extras
  - `git setup`
  - `git touch`
  - `git number`
+ - `git obliterate`
+ - `git promote`
  - `git local-commits`
 
 ## extras
@@ -470,6 +478,13 @@ git number
 
 git number add 1  # stage the file 1 (Readme.md)
 git number -vi 2  # edit the file 2 (bin/git-number) using vi
+
+## git-obliterate [filename]
+
+Completely remove a file from the repository, including past commits and tags.
+
+```bash
+git obliterate secrets.json
 ```
 
 ## git-local-commits
