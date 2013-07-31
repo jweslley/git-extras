@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="1.7.0"
+VERSION="1.9.0"
 
 update() {
   local bin=$(which git-extras)
@@ -24,7 +24,6 @@ case "$1" in
     update
     ;;
   *)
-    test "$INSTALL" = "y" && update && exit
     man git-extras
     ;;
 esac
