@@ -15,10 +15,12 @@ git-delete-branch(1) -- Delete branches
   &lt;branchname&gt;
 
   The name of the branch to delete.
+  If multiple branches are provided, then they will all be deleted.
 
 ## EXAMPLES
 
     $ git delete-branch integration
+    $ git delete-branch integration bug/1234
 
 ## AUTHOR
 
@@ -26,8 +28,8 @@ Written by Tj Holowaychuk &lt;<tj@vision-media.ca>&gt;
 
 ## REPORTING BUGS
 
-&lt;<https://github.com/visionmedia/git-extras/issues>&gt;
+&lt;<https://github.com/tj/git-extras/issues>&gt;
 
 ## SEE ALSO
 
-&lt;<https://github.com/visionmedia/git-extras>&gt;
+&lt;<https://github.com/tj/git-extras>&gt;

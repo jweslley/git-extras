@@ -15,6 +15,10 @@ git-changelog(1) -- Generate the changelog report
 
   Show commit logs from the current version.
 
+  --no-merges
+
+  Filters out merge commits (commits with more than 1 parent) from generated changelog.
+
 ## EXAMPLES
 
   * Updating changelog file:
@@ -42,8 +46,8 @@ Written by Tj Holowaychuk &lt;<tj@vision-media.ca>&gt;
 
 ## REPORTING BUGS
 
-&lt;<https://github.com/visionmedia/git-extras/issues>&gt;
+&lt;<https://github.com/tj/git-extras/issues>&gt;
 
 ## SEE ALSO
 
-&lt;<https://github.com/visionmedia/git-extras>&gt;
+&lt;<https://github.com/tj/git-extras>&gt;

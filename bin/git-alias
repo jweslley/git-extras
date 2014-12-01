@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 case $# in
   0) git config --get-regexp 'alias.*' | colrm 1 6 | sort | awk '{$1=sprintf("%20s =",$1);print}' ;;

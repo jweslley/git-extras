@@ -1,7 +1,7 @@
 # bash completion support for git-extras.
 
 _git_changelog(){
-  __gitcomp "-l -t --list --tag"
+  __gitcomp "-l -t --list --tag --no-merges"
 }
 
 _git_contrib(){
